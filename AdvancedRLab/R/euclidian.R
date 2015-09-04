@@ -1,3 +1,19 @@
+#' Euclidian Algorithm
+#' 
+#'A method for finding the greatest common divisor (GCD)
+#'
+#'@param a a numeric scalar
+#'@param b a numeric scalar
+#'
+#'@return The largest number that divides the two numbers (\code{a} and \code{b}) without leaving any remainder.
+#'
+#'@examples
+#'euclidian(123612, 13892347912) #4
+#'euclidian(100,10000) #100
+#'
+#'@references \url{http://en.wikipedia.org/wiki/Euclidean_algorithm}
+#'
+
 euclidian <- function(a, b){
     #assertion
     stopifnot(length(a) <= 1)
@@ -10,5 +26,5 @@ euclidian <- function(a, b){
         b <- a %% b
         a <- t
     }
-  a
+    return(a)
 }
