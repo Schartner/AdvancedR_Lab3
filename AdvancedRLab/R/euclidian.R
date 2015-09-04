@@ -2,8 +2,8 @@
 #' 
 #'A method for finding the greatest common divisor (GCD)
 #'
-#'@param a a numeric
-#'@param b a numeric
+#'@param a a numeric scalar
+#'@param b a numeric scalar
 #'
 #'@return The largest number that divides the two numbers (\code{a} and \code{b}) without leaving any remainder.
 #'
