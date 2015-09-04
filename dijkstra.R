@@ -19,7 +19,14 @@ dijkstra <- function(graph, init_node){
     }
     #implementation
     #problem not index but number
+    visited<-c(init_node)
+  #  for (i in 1:length(unique(graph[[3]]))){
+
   distance[graph[2][graph[1]==init_node]]<-graph[[3]][graph[1]==init_node]
+ visited[i+1]<-which.min(distance)
+ 
+} 
+
 }
 
 
