@@ -7,9 +7,9 @@
 euclidian(a, b)
 }
 \arguments{
-\item{a}{a numeric}
+\item{a}{a numeric scalar}
 
-\item{b}{a numeric}
+\item{b}{a numeric scalar}
 }
 \value{
 The largest number that divides the two numbers (\code{a} and \code{b}) without leaving any remainder.
