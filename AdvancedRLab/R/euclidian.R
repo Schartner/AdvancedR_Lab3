@@ -10,5 +10,5 @@ euclidian <- function(a, b){
         b <- a %% b
         a <- t
     }
-    return(a)
+  a
 }
