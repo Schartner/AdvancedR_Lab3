@@ -7,40 +7,33 @@ dijkstra <- function(graph, init_node){
     }
     
     
-  #  distance<-NULL
+
     distance[all.nodes]<-Inf
     distance[init_node]<-0
-    #maybe not order
+ 
     all.nodes<-sort(unique(graph[[1]]))
     names(distance)<-all.nodes
     
-   
-visit<-init_node
-    
-    #for (i in v1){
-    #  if (i!=init_node){
-     #   distance[i]<- Inf
-      #}
-  
-#  }
-    #implementation
+   #the vector visit keeps track of all the nodes visited
 
-    visited<-c(init_node)
-  
-    #  for (i in 1:length(unique(graph[[3]]))){
 visit[1]<-init_node
+
+#calculate distances from initial point. might be possible to implement in while loop. will try later
   distance[graph[2][graph[1]==init_node]]<-graph[[3]][graph[1]==init_node]
+  
+  #function that determins the next node taking in account the distances already gone and points already visited
+  #sets NA to 0 but only within the function because it cannot deal with NA
   next.node<-function(distance,visit)
   {if(any(is.na(visit))){visit[is.na(visit)]<-0}
     as.numeric(names(which.min(distance[names(distance)!=visit])))
     }
   
-
+#determining the second node. maybe better implimented within while loop
  i<-next.node(distance,visit)
  visit[next.node(distance,visit)]<-i
- 
+ #if not all points have been visited the while loop will loop for the distances 
  while (!all(all.nodes %in% visit)){
-   
+ #temporary has the distances from current node to all neighboring
    temporary<-c(rep(Inf,length(all.nodes)))
    temporary[graph[2][graph[1]==i]]<-graph[3][graph[1]==i]
    
