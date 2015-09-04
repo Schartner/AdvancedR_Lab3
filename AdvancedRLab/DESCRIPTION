@@ -1,0 +1,9 @@
+Package: AdvancedRLab
+Type: Package
+Title: calculate
+Version: 1.0
+Date: 2015-09-04
+Author: nnnnnn
+Maintainer: Clara Schartner <Clara.schartner@gmail.com>
+Description: Calculate things
+License: none
