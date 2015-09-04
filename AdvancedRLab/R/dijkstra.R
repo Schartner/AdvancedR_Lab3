@@ -1,4 +1,4 @@
-dijkstra <- function(graph, init_node){
+dijkstra <- function(graph, init_node){#
   #assertion
   stopifnot(length(init_node) <= 1)
   stopifnot(is.numeric(init_node))
