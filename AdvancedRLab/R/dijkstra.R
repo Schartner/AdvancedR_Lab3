@@ -1,62 +1,65 @@
+#'Dijkstra Algorithm
+#'
+#'A method for finding the shortest path between the nodes in a graph.
+#'
+#'@param graph a dataframe consists of three variables 
+#'@param init_node a numeric scalar for the first node which also exist in the graph
+#'
+#'@return The value is a vector. It is the least value (or shortest path) from the starting node to every nodes in a graph
+#'
+#'@references \url{https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm}
+#'
+#'@examples
+#'dijkstra(wiki_graph, 1) #0 7 9 20 20 11
+#'dijkstra(wiki_graph, 3) #9 10 0 11 11 2
+#'
+
 dijkstra <- function(graph, init_node){
-  #assertion
-  stopifnot(length(init_node) <= 1)
-  stopifnot(is.numeric(init_node))
-  for(i in 1:2){
-    stopifnot(any(graph[i] == init_node))
-  }
-  
-  
-  #  distance<-NULL
-  distance[all.nodes]<-Inf
-  distance[init_node]<-0
-  #maybe not order
-  all.nodes<-sort(unique(graph[[1]]))
-  names(distance)<-all.nodes
-  
-  
-  visit<-init_node
-  
-  #for (i in v1){
-  #  if (i!=init_node){
-  #   distance[i]<- Inf
-  #}
-  
-  #  }
-  #implementation
-  
-  visited<-c(init_node)
-  
-  #  for (i in 1:length(unique(graph[[3]]))){
-  visit[1]<-init_node
-  distance[graph[2][graph[1]==init_node]]<-graph[[3]][graph[1]==init_node]
-  next.node<-function(distance,visit)
-  {if(any(is.na(visit))){visit[is.na(visit)]<-0}
-    as.numeric(names(which.min(distance[names(distance)!=visit])))
-  }
-  
-  
-  i<-next.node(distance,visit)
-  visit[next.node(distance,visit)]<-i
-  
-  while (!all(all.nodes %in% visit)){
+    #assertion
+    stopifnot(length(init_node) <= 1)
+    stopifnot(is.numeric(init_node))
+    for(i in 1:2){
+        stopifnot(any(graph[i] == init_node))
+    }
     
-    temporary<-c(rep(Inf,length(all.nodes)))
-    temporary[graph[2][graph[1]==i]]<-graph[3][graph[1]==i]
+    #define variables
+    distance <- numeric(0)
+    visit <- numeric(nrow(unique(graph[1])))
     
-    distance[(temporary+distance[i])<distance]<-(temporary+distance[i])[(temporary+distance[i])<distance]
+    #all.nodes should be declare before this command line 'distance[all.nodes]>-Inf'
+    all.nodes <- sort(unique(graph[[1]]))
+    distance[all.nodes] <- Inf    
+    names(distance) <- all.nodes
+    distance[init_node] <- 0
+ 
+    #the vector visit that keeps track of all the nodes that have been visited
+    visit[init_node] <- init_node
+
+    #calculate distances from initial point. 
+    #might be possible to implement in while loop. will try later
+    distance[graph[2][graph[1] == init_node]] <- graph[[3]][graph[1] == init_node]
     
-    #determine next one
-    i<-next.node(distance,visit)
-    visit[next.node(distance,visit)]<-i
-  }
-  distance
-} 
-
-
-
-test_frame<-data.frame(v1=c(1,1,1,2,2,2,3,3,3,3,4,4,4,5,5,6,6,6),
-                       v2=c(2,3,6,1,3,4,1,2,4,6,2,3,5,4,6,1,3,5),
-                       w=c(7,9,14,7,10,15,9,10,11,2,15,11,6,6,9,14,2,9))
-
-dijkstra(test_frame,1)
+    #function that determines the next node taking in account the distances already gone and points already visited
+    next.node <- function(distance, visit){
+        return(as.numeric(names(which.min(distance[names(distance)!=visit]))))
+    }
+  
+    #determining the second node. maybe better implimented within while loop
+    i <- next.node(distance, visit)
+    visit[next.node(distance, visit)] <- i
+    
+    #if not all points have been visited, the while loop will loop for the distances 
+    while(!all(all.nodes %in% visit)){
+        #temporary has the distances from current node to all neighboring
+        temporary <- c(rep(Inf,length(all.nodes)))
+        temporary[graph[2][graph[1] == i]] <- graph[3][graph[1] == i]
+        
+        temp <- temporary + distance[i]
+        distance[temp < distance] <- temp[temp < distance]
+        
+        #determine the next one
+        i <- next.node(distance, visit)
+        visit[next.node(distance, visit)] <- i
+    }
+    return(distance)
+}
