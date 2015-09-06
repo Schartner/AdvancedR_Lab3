@@ -1,11 +1,11 @@
 Package: AdvancedRLab
 Type: Package
-Title: Calculate the Euclidian and Dijkstra’s algorithms
+Title: Calculate Euclidian and Dijkstra algorithm
 Version: 1.0
 Date: 2015-09-04
 Author: Clara Schartner and Araya Eamrurksiri
 Maintainer: Clara Schartner <Clara.schartner@gmail.com>
-Description: Euclidian algorithm and Dijkstra’s algorithm
+Description: Euclidian and Dijkstra algorithm
 License: none
 LazyData: true
 Suggests: testthat
