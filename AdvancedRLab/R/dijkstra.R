@@ -18,7 +18,7 @@ dijkstra <- function(graph, init_node){
     #assertion for graph
     stopifnot(is.data.frame(graph))
     stopifnot(length(graph) == 3)
-
+stopifnot(sort(unique(graph[1]))==sort(unique(graph[2])))
     
     #assertion for init_node
     stopifnot(length(init_node) <= 1)
