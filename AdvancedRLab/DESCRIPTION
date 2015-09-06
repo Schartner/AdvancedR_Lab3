@@ -7,3 +7,4 @@ Author: nnnnnn
 Maintainer: Clara Schartner <Clara.schartner@gmail.com>
 Description: Calculate things
 License: none
+Suggests: testthat
