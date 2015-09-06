@@ -5,7 +5,7 @@
 #'@param graph a dataframe consists of three variables 
 #'@param init_node a numeric scalar for the first node which also exist in the graph
 #'
-#'@return The value is a vector. It is the least value (or shortest path) from the starting node to every nodes in a graph
+#'@return The value is a vector. It is the least value (or shortest path) from the starting node to every nodes in a graph.
 #'
 #'@references \url{https://en.wikipedia.org/wiki/Dijkstra}
 #'
