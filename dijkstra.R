@@ -7,24 +7,14 @@ dijkstra <- function(graph, init_node){
     }
     
     
-  #  distance<-NULL
+  # all but the starting node are infinity in the beginning
     distance[all.nodes]<-Inf
     distance[init_node]<-0
-    #maybe not order
+    
     all.nodes<-sort(unique(graph[[1]]))
     names(distance)<-all.nodes
     
-   
-visit<-init_node
-    
-    #for (i in v1){
-    #  if (i!=init_node){
-     #   distance[i]<- Inf
-      #}
-  
-#  }
-    #implementation
-
+   #the vector visit keeps track of all the nodes visited
     visited<-c(init_node)
   
     #  for (i in 1:length(unique(graph[[3]]))){
