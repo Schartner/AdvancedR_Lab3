@@ -20,11 +20,14 @@ euclidian <- function(a, b){
     stopifnot(length(b) <= 1)
     stopifnot(is.numeric(a) & is.numeric(b))
     
-    #implementation
+    #positive numbers
+    a <- abs(a)
+    b <- abs(b)
+    
     while(b != 0){
         t <- b
         b <- a %% b
         a <- t
     }
-  a
+    return(a)
 }
