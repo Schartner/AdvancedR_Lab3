@@ -7,3 +7,4 @@ test_that("the return value always be positive number",{
     expect_more_than(euclidian(a, -b),0)
     expect_more_than(euclidian(-a, b),0)
 })
+

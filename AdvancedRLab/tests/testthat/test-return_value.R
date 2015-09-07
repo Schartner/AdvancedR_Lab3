@@ -16,6 +16,6 @@ test_that("check the return distance of initial node is 0",{
   expect_equal(dijkstra(graph,i)[i] == 0, TRUE)
 })
 
-test_that("Distance not possible. Has to be either Infinity (not connected) or smaller than total sum of distances",{
+test_that("Distances not plausible. Has to be either Infinity (not connected) or smaller than total sum of distances",{
   expect_equal(all(dijkstra(graph,i) < sum(graph[3]/2)|dijkstra(graph,i)==Inf), TRUE)
 })

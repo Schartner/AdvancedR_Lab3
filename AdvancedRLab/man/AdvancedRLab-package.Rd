@@ -13,7 +13,7 @@
 The DESCRIPTION file:
 \packageDESCRIPTION{AdvancedRLab}
 \packageIndices{AdvancedRLab}
-~~ An overview of how to use the package, including the most important functions ~~
+The package contains two functions dijkstra dn euclidian. It also contains a dataset wiki_graph which can be used for the dijkstra function.
 }
 \author{
 \packageAuthor{AdvancedRLab}
@@ -21,14 +21,12 @@ The DESCRIPTION file:
 Maintainer: \packageMaintainer{AdvancedRLab}
 }
 \references{
-~~ Literature or other references for background information ~~
+http://www.ida.liu.se/~732A50/info/courseinfo.en.shtml
 }
-~~ Optionally other standard keywords, one per line, from file KEYWORDS in the R documentation directory ~~
 \keyword{ package }
 \seealso{
-~~ Optional links to other man pages, e.g. ~~
-~~ \code{\link[<pkg>:<pkg>-package]{<pkg>}} ~~
+
 }
 \examples{
-~~ simple examples of the most important functions ~~
+euclidian(10,100)
 }
