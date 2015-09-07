@@ -18,7 +18,7 @@ dijkstra <- function(graph, init_node){
     #assertion for graph
     stopifnot(is.data.frame(graph))
     stopifnot(length(graph) == 3)
-stopifnot(all(sort(unique(graph[[1]]))==sort(unique(graph[[2]]))))
+    stopifnot(all(sort(unique(graph[[1]]))==sort(unique(graph[[2]]))))
     
     #assertion for init_node
     stopifnot(length(init_node) <= 1)
@@ -31,7 +31,6 @@ stopifnot(all(sort(unique(graph[[1]]))==sort(unique(graph[[2]]))))
     distance <- numeric(0)
     visit <- numeric(nrow(unique(graph[1])))
     
-    ##all.nodes should be declare before this command line 'distance[all.nodes]>-Inf'
     all.nodes <- sort(unique(graph[[1]]))
     distance[all.nodes] <- Inf    
     names(distance) <- all.nodes
@@ -40,8 +39,7 @@ stopifnot(all(sort(unique(graph[[1]]))==sort(unique(graph[[2]]))))
     #the vector visit that keeps track of all the nodes that have been visited
     visit[init_node] <- init_node
 
-    #calculate distances from initial point. 
-    ##might be possible to implement in while loop. will try later
+    #calculate distances from initial point
     distance[graph[2][graph[1] == init_node]] <- graph[[3]][graph[1] == init_node]
     
     #function that determines the next node taking in account the distances already gone and points already visited
